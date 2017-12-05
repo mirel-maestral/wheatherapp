@@ -31,6 +31,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iS-gb-XHa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="317"/>
                                 <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JaO-Jy-z6x">
+                                        <rect key="frame" x="169" y="140" width="37" height="37"/>
+                                    </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uul-Mk-S9S">
                                         <rect key="frame" x="20" y="20" width="199" height="277"/>
                                         <subviews>
@@ -78,6 +81,8 @@
                                 <color key="backgroundColor" red="0.37358816729589461" green="0.6537969773583685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="uul-Mk-S9S" firstAttribute="leading" secondItem="9iS-gb-XHa" secondAttribute="leading" constant="20" id="5eB-kO-GJY"/>
+                                    <constraint firstItem="JaO-Jy-z6x" firstAttribute="centerY" secondItem="9iS-gb-XHa" secondAttribute="centerY" id="F1b-Dc-2g3"/>
+                                    <constraint firstItem="JaO-Jy-z6x" firstAttribute="centerX" secondItem="9iS-gb-XHa" secondAttribute="centerX" id="Htv-9J-uLh"/>
                                     <constraint firstAttribute="bottom" secondItem="uul-Mk-S9S" secondAttribute="bottom" constant="20" id="Nep-Cb-7Pn"/>
                                     <constraint firstItem="uul-Mk-S9S" firstAttribute="top" secondItem="9iS-gb-XHa" secondAttribute="top" constant="20" id="T2m-n4-Mb0"/>
                                     <constraint firstAttribute="trailing" secondItem="Ivh-Kc-duq" secondAttribute="trailing" constant="30" id="bL6-do-1fQ"/>
@@ -94,7 +99,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Idi-MR-Uf4" id="Lee-Kb-xoG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G0G-tI-i6X">
@@ -196,11 +201,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="JaO-Jy-z6x" id="cB1-zy-C33"/>
                         <outlet property="currentLocationLabel" destination="ISt-YL-EHs" id="oku-DN-lNh"/>
                         <outlet property="currentTempLabel" destination="UHz-jw-8y5" id="XkX-TJ-Q0K"/>
                         <outlet property="currentWeatherImage" destination="Owr-I9-EE9" id="hXp-bg-6gU"/>
                         <outlet property="currentWeatherLabel" destination="viB-GY-mAq" id="B3g-7k-Gbf"/>
                         <outlet property="dataLabel" destination="IIp-vW-nig" id="pPv-ET-MWB"/>
+                        <outlet property="mainView" destination="9iS-gb-XHa" id="Qlo-6c-Zzn"/>
                         <outlet property="tableView" destination="Z7Y-gn-kVx" id="AeM-jl-zdW"/>
                     </connections>
                 </viewController>

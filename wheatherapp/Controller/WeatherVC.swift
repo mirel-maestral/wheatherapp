@@ -10,7 +10,15 @@ import UIKit
 import CoreLocation
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var mainView: UIView!{
+        didSet{
+            let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(getData))
+            swipeUpRecognizer.direction = .up
+            mainView.addGestureRecognizer(swipeUpRecognizer)
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentWeatherImage: UIImageView!
     @IBOutlet weak var currentLocationLabel: UILabel!
@@ -45,13 +53,21 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         
     }
     
-    func getData() {
+   
+    @objc func getData() {
         
-        currentWeather.downloadWeatherDetails(completed: self.updateMainUI)
+        activityIndicator.startAnimating()
         
+        currentWeather.downloadWeatherDetails{ () in
+            self.updateMainUI()
+            self.activityIndicator.stopAnimating()
+        }
+        
+        activityIndicator.startAnimating()
         ForeCast.getForeCasts { (fs) in
             self.foreCasts = fs
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     

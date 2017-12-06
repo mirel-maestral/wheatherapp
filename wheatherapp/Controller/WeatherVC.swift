@@ -99,7 +99,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         currentTempLabel.text = "\(currentWeather.currentTemp.rounded())°"
         currentLocationLabel.text = currentWeather.cityName
         currentWeatherLabel.text = currentWeather.weatherType
-        currentWeatherImage.image = UIImage(named: currentWeather.weatherType == "Mist" ? "Partially Cloudy Copy" : currentWeather.weatherType)
+        currentWeatherImage.image = UIImage(named: currentWeather.weatherType.capitalized)
         dataLabel.text = currentWeather.date
         
     }
